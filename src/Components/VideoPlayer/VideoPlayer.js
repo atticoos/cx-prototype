@@ -9,7 +9,11 @@ export default function VideoPlayer({videoId}) {
       allowsInlineMediaPlayback={true}
       mediaPlaybackRequiresUserAction={false}
       source={{ html: htmlForVideo(videoId)}}
-      style={{alignSelf: 'stretch', height: 300, backgroundColor: 'transparent'}}
+      style={{
+        alignSelf: 'stretch',
+        height: 200,
+        backgroundColor: 'transparent'
+      }}
     />
   )
 }
@@ -20,9 +24,19 @@ const htmlForVideo = videoId => `
 <head>
   <script src="https://www.youtube.com/iframe_api"></script>
 </head>
-<body>
-<div id="player" style="height:300px;width:100%;">Player</div>
-
+<body style="background-color:transparent;">
+<div class="mask">
+  <div id="player" style="height:300px;width:100%;">Player</div>
+</div>
+<style>
+.mask {
+  overflow: hidden;
+  height: 170px;
+}
+.mask #player {
+  margin-top: -68px;
+}
+</style>
 <script>
   var player;
   function onYouTubeIframeAPIReady() {
