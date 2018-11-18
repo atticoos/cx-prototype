@@ -13,8 +13,9 @@ export function HomeScreen ({live, offline, viewerCount, ...props}) {
       <ScrollView>
         <Screen.Content style={{marginTop: 20}}>
           <SectionHeading>Live</SectionHeading>
-          {live.slice(0, 1).map(({stream, streamer}) => (
+          {live.map(({stream, streamer}, i) => (
             <StreamCard
+              playInline={i === 0}
               key={streamer.id}
               stream={stream}
               streamer={streamer}
