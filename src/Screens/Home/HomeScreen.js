@@ -11,7 +11,7 @@ export function HomeScreen ({live, offline, viewerCount, ...props}) {
   return (
     <Screen viewerCount={viewerCount}>
       <ScrollView>
-        <Screen.Content>
+        <Screen.Content style={{marginTop: 20}}>
           <SectionHeading>Live</SectionHeading>
           {live.map(({stream, streamer}) => (
             <StreamCard
